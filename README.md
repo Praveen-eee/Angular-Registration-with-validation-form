@@ -25,8 +25,10 @@ Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To u
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
- Registration form with invalid data
+ 
+Registration form with invalid data
 ![image](https://user-images.githubusercontent.com/115334912/203544946-605eddd6-d260-488b-b5f9-a001f63478bd.png)
+
 
 Registration form with valid data
 ![image](https://user-images.githubusercontent.com/115334912/203545070-17451f3d-fd6a-4124-ad47-87697827f36d.png)
