@@ -1,0 +1,107 @@
+<div class="title">
+  <h3>Registration Form</h3>
+</div>
+<div class="container">
+  <form class="register-form" #f="ngForm">
+    <div class="name">
+      <label for="name">Name</label>
+      <br />
+      <input
+        type="text"
+        name="name"
+        autocomplete="off"
+        #name="ngModel"
+        ngModel
+        required
+        pattern="[a-z A-Z]+"
+      />
+      <!--#name: local reference name to check valid-->
+      <!-- formdata is an object, name is field-->
+      <br />
+      <span class="error" *ngIf="name.invalid && name.touched">
+        Enter valid Name
+        <!-- errors is array property , -->
+      </span>
+    </div>
+    <br />
+
+    <div class="email">
+      <label for="email">E-Mail</label>
+      <br />
+      <input
+        type="text"
+        name="mailid"
+        #mailid="ngModel"
+        ngModel
+        required
+        pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$"
+        autocomplete="off"
+      />
+    </div>
+
+    <span class="error" *ngIf="mailid.invalid && mailid.touched">
+      Enter valid E-mail ID
+      <!-- errors is array property , -->
+    </span>
+    <br />
+    <label>Country</label>
+    <div>
+      <select name="country" [(ngModel)]="country" (change)="setState()">
+        <!-- <option selected="select-country">Select-country</option> -->
+        <option value="Europe">Europe</option>
+        <option value="India">India</option>
+        <option value="US">US</option>
+      </select>
+    </div>
+    <br />
+
+    <label>State</label>
+    <div>
+      <select>
+        <option class="state-label" *ngFor="let state of states" value="state">
+          {{ state }}
+        </option>
+      </select>
+    </div>
+    <br />
+
+    <div class="date">
+      <button (click)="dt()">Date and Time</button>
+      <br />
+      {{ dd }}{{ date1 | date: "dd-MM-yyyy" }}
+      <br />
+      {{ time }} {{ date1 | date: "mediumTime": "{{utc}}" }}
+    </div>
+    <br />
+    <div class="mob">
+      <label for="mobile">Mobile</label>
+      <br />
+      <input
+        minlength="10"
+        maxlength="13"
+        type="text"
+        pattern="[- + 0-9]+"
+        name="mobnum"
+        #mobnum="ngModel"
+        ngModel
+        autocomplete="off"
+        required
+        placeholder="Enter your number"
+      />
+    </div>
+
+    <span class="error" *ngIf="mobnum.invalid && mobnum.touched">
+      Enter valid mobile number
+      <!-- errors is array property , -->
+    </span>
+    <br />
+    <br />
+    <input
+      [disabled]="f.invalid"
+      type="submit"
+      class="Register"
+      (click)="popAlert()"
+    />
+  </form>
+</div>
+<!-- {{ utc }} -->
